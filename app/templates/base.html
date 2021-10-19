@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ title }} - Email example app</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    </head>
+    <body>
+        <div class="container">
+        <!-- If there's errors in a form, show these -->
+        {% if form %}
+          {% if form.errors %}​
+            {% for field, errors in form.errors.items() %}​
+               <p>​{{ form[field].label }} {{ ', '.join(errors) }}​</p>​
+            {% endfor %}​
+          {% endif %}
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+        </div>
+        <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
+    </body>
+</html>
